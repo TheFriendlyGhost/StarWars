@@ -58,6 +58,7 @@ $(document).ready(function(){
 	var choiceChar = false
 	var choiceEnemy = false
 	var canAttack = false
+	var count = jedis.length - 1
 
 	var Obi = new Jedi(jedis[0], 120, 10, "assets/images/obi.jpg")
 	var Luke = new Jedi(jedis[1], 150, 12, "assets/images/luke.jpg")
@@ -146,12 +147,17 @@ $(document).ready(function(){
 			curEnemy.HealthPoints = curEnemy.HealthPoints - yourChar.AttackPower
 			yourChar.AttackPower += 10
 
+			$('#info').show()
+			$('#info2').show()
+			
 			if(yourChar.HealthPoints <= 0){
 				yourChar.HealthPoints = 0
 				yourChar.isdead()
 				canAttack = false
-				$('#reset').show()
-				$('#info').html("You have died, click reset to start a new game")
+		$('#reset').hide()
+				$('#info').html("You have died, click restart to start a new game")
+				$('#info2').html("")
+				return
 			}
 
 			if(curEnemy.HealthPoints <= 0){
@@ -159,14 +165,19 @@ $(document).ready(function(){
 				curEnemy.isdead()
 				choiceEnemy = false
 				canAttack = false
-				 $('#info').html("You killed "+curEnemy.name+" choose your next victim")
+				$('#info').html("You killed "+curEnemy.name+" choose your next victim")
 
+				count--
 			}
-			$('#info').show()
-			$('#info2').show()
 
 			yourChar.updateHealth()
 			curEnemy.updateHealth()
+
+			if(!count){
+				$('#info').html("YOU WIN ! ! !")
+				$('#info2').html("")
+				$('#reset').show()
+			}
 		}
 	})
 
@@ -174,6 +185,8 @@ $(document).ready(function(){
 		choiceChar = false
 		choiceEnemy = false
 		canAttack = false
+
+		count = jedis.length
 
 		$('#reset').hide()
 
