@@ -1,0 +1,64 @@
+body{
+	background: url(../images/bg.jpeg) no-repeat center center fixed;
+	background-size: 100% 100%;;
+}
+
+@font-face {
+    font-family: star;
+	/*font-feature-settings:dlig; */
+	src: url(star.otf);
+}
+
+#title{
+	/*margin: 0 auto !important;*/
+	text-align: center;
+	font-size:60px;
+	font-weight: bold;
+	font-family: star;
+	/*text-shadow: -1px 0 ##FEE73B, 0 1px ##FEE73B, 1px 0 ##FEE73B, 0 -1px ##FEE73B;*/
+
+}
+
+.row{
+	padding-left: 10px;
+}
+#Obi-Wan{
+	background-color: blue;
+}
+
+#Luke{
+	background-color: green;
+}
+
+#Sid{
+	background-color: red;
+}
+
+#Maul{
+	background-color: black;
+}
+
+h3,#info,#info2{
+	font-size: 10px !important;
+}
+
+.card-img-top{
+	/*width: 100% !important;*/
+	resize: both;
+	min-height: 142px;
+}
+
+.card-header,.card-footer{
+	font-family: star !important;
+	height: 21px;
+}
+.card{
+	height: 200px;
+	width: 200px;
+	border-width: 3px !important;
+}
+
+h1,h2,#title,#info,#info2{
+	font-family: star !important;
+	color: #FEE73B !important;
+}
